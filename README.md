@@ -14,21 +14,33 @@ A local web-based Python coding practice tool for FIT9136 In-class Test 2 topics
 
 This app can run as a static website because it uses Pyodide to execute Python inside the browser.
 
-1. Push this project to a GitHub repository.
-2. Open the repository on GitHub.
-3. Go to **Settings** -> **Pages**.
+Current repository:
+
+```text
+https://github.com/JackCheng030910/Monash-Master-of-AI-9136
+```
+
+Expected GitHub Pages link after Pages is enabled:
+
+```text
+https://jackcheng030910.github.io/Monash-Master-of-AI-9136/
+```
+
+To enable GitHub Pages:
+
+1. Open the repository on GitHub.
+2. Click **Settings** in the top repository navigation bar.
+3. In the left sidebar, click **Pages** under **Code and automation**.
+   - Do not use **Branches**. Branch protection is a different settings page.
 4. Under **Build and deployment**, choose:
    - Source: **Deploy from a branch**
    - Branch: **main**
    - Folder: **/root**
-5. Save the settings.
-6. GitHub will generate a public URL similar to:
+5. Click **Save**.
+6. Wait 1-3 minutes. GitHub should show **Your site is live at ...**.
+7. Share the generated Pages URL with classmates.
 
-```text
-https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/
-```
-
-Share that link with classmates. The first time someone clicks `Run Code` or `Run Tests`, the browser downloads Pyodide. This may take a short moment, especially for the Pandas question.
+The first time someone clicks `Run Code` or `Run Tests`, the browser downloads Pyodide. This may take a short moment, especially for the Pandas question.
 
 ### Option B: Run Locally with Python
 
