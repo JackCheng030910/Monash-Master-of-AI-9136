@@ -579,3 +579,124 @@ button.is-running::after {
   border-top: 1px solid #263244;
   font-size: 12px;
 }
+
+.progress-text {
+  margin-top: -12px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.side-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.side-actions button {
+  padding: 9px 10px;
+  font-size: 13px;
+}
+
+.editor-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+#runtimeBadge {
+  border: 1px solid #374151;
+  border-radius: 999px;
+  padding: 3px 8px;
+  color: #cbd5e1;
+  background: #111827;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.question-passed #runtimeBadge {
+  border-color: rgba(134, 239, 172, 0.45);
+  color: #86efac;
+  background: #052e1a;
+}
+
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: #263244;
+  border-bottom: 1px solid #263244;
+}
+
+.flow-steps span {
+  padding: 9px 10px;
+  color: #cbd5e1;
+  background: #111827;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.terminal-clear {
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 5px 9px;
+  color: #cbd5e1;
+  background: #111827;
+  font-size: 12px;
+}
+
+.toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 20;
+  max-width: 340px;
+  transform: translateY(18px);
+  opacity: 0;
+  pointer-events: none;
+  border: 1px solid rgba(134, 239, 172, 0.4);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #dcfce7;
+  background: #052e1a;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.28);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.focus-mode {
+  grid-template-columns: 0 1fr;
+}
+
+body.focus-mode .sidebar {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.focus-mode .content {
+  padding: 10px;
+}
+
+body.focus-mode .practice-view {
+  grid-template-columns: minmax(360px, 38%) minmax(520px, 62%);
+}
+
+@media (max-width: 960px) {
+  .flow-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .editor-status {
+    flex-direction: column;
+  }
+
+  body.focus-mode {
+    grid-template-columns: 1fr;
+  }
+}

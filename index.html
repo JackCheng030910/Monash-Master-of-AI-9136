@@ -22,11 +22,16 @@
       <div class="progress-shell" aria-label="Progress">
         <div id="progressBar" class="progress-bar"></div>
       </div>
+      <p id="progressText" class="progress-text">0 of 16 completed</p>
+      <div class="side-actions">
+        <button id="nextUnsolvedBtn" class="ghost dark" type="button">Next unsolved</button>
+        <button id="focusToggleBtn" class="ghost dark" type="button">Focus</button>
+      </div>
       <div class="mode-switch">
         <button id="instructionsTab" class="mode-tab active" type="button">考试须知</button>
         <button id="practiceTab" class="mode-tab" type="button">练习题</button>
       </div>
-      <input id="questionSearch" class="question-search" type="search" placeholder="Search questions..." />
+      <input id="questionSearch" class="question-search" type="search" placeholder="Search topic or question..." />
       <nav id="questionList" class="question-list"></nav>
     </aside>
 
@@ -84,12 +89,21 @@
 
         <section class="editor-panel">
           <div class="editor-head">
-            <span id="fileName">question.py</span>
+            <div class="editor-title">
+              <span id="fileName">question.py</span>
+              <small id="runtimeBadge">Ready</small>
+            </div>
             <div class="editor-actions">
               <button id="resetBtn" class="ghost dark" type="button">Reset</button>
               <button id="executeBtn" class="secondary" type="button">Run Code</button>
-              <button id="runBtn" type="button">Run Tests</button>
+              <button id="runBtn" type="button">Check Answer</button>
             </div>
+          </div>
+          <div class="flow-steps" aria-label="Practice workflow">
+            <span>1 Read task</span>
+            <span>2 Write code</span>
+            <span>3 Run code</span>
+            <span>4 Check answer</span>
           </div>
           <textarea id="codeEditor" spellcheck="false"></textarea>
           <div class="editor-status">
@@ -98,13 +112,15 @@
           </div>
           <div class="terminal-head">
             <span>Terminal</span>
-            <span>python3</span>
+            <button id="clearTerminalBtn" class="terminal-clear" type="button">Clear</button>
           </div>
           <div id="result" class="result idle">$ 点击 Run Code 查看 print 输出，或点击 Run Tests 检查隐藏测试。</div>
         </section>
         </div>
       </section>
     </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
     <script src="client-tests.js"></script>
