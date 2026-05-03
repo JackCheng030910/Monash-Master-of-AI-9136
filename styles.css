@@ -1068,3 +1068,77 @@ textarea {
 .instruction-summary h4 {
   color: var(--ed-text);
 }
+
+.empty-instructions {
+  display: none;
+}
+
+.practice-view {
+  --left-pane: 38%;
+  grid-template-columns: minmax(320px, var(--left-pane)) 8px minmax(520px, 1fr) !important;
+}
+
+.split-handle {
+  position: relative;
+  z-index: 3;
+  cursor: col-resize;
+  background: #27262d;
+  border-left: 1px solid #3a3940;
+  border-right: 1px solid #3a3940;
+}
+
+.split-handle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 54px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: #777281;
+  box-shadow: -5px 0 0 #4d4a55, 5px 0 0 #4d4a55;
+}
+
+.split-handle:focus-visible {
+  outline: 2px solid #f6c453;
+  outline-offset: -2px;
+}
+
+body.is-resizing {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.python-shell-label {
+  padding: 8px 14px;
+  color: #f6c453;
+  background: #24232a;
+  border-bottom: 1px solid #46444d;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#codeEditor {
+  background:
+    linear-gradient(to right, #27252d 0 58px, #312f37 58px 100%);
+  padding-left: 74px;
+  line-height: 1.65;
+  box-shadow: inset 58px 0 0 #27252d;
+}
+
+#codeEditor:focus {
+  box-shadow: inset 58px 0 0 #27252d, inset 0 0 0 2px rgba(246, 196, 83, 0.28);
+}
+
+@media (max-width: 960px) {
+  .practice-view {
+    grid-template-columns: 1fr !important;
+  }
+
+  .split-handle {
+    display: none;
+  }
+}

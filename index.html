@@ -67,19 +67,7 @@
       </header>
 
       <section class="content">
-        <article id="instructionsView" class="instructions-view">
-          <section class="instruction-hero compact">
-            <p>FIT9136 Practice</p>
-            <h3>Python Coding Lessons</h3>
-            <div class="scope-grid">
-              <span>Mutability</span>
-              <span>File IO</span>
-              <span>Modules</span>
-              <span>Libraries</span>
-              <span>OOP</span>
-            </div>
-          </section>
-        </article>
+        <article id="instructionsView" class="instructions-view empty-instructions" aria-label="Instructions"></article>
 
         <div id="practiceView" class="practice-view">
         <article class="prompt">
@@ -96,6 +84,7 @@
           </details>
         </article>
 
+        <div id="splitHandle" class="split-handle" role="separator" aria-label="Resize panels" tabindex="0"></div>
         <section class="editor-panel">
           <div class="editor-head">
             <div class="editor-title">
@@ -114,7 +103,8 @@
             <span>3 Run code</span>
             <span>4 Check answer</span>
           </div>
-          <textarea id="codeEditor" spellcheck="false"></textarea>
+          <div class="python-shell-label">Embedded Python</div>
+          <textarea id="codeEditor" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
           <div class="editor-status">
             <span id="lineCount">1 line</span>
             <span>⌘/Ctrl + Enter: Run Code · Shift + Enter: Run Tests</span>

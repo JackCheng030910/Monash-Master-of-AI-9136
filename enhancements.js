@@ -151,3 +151,49 @@
 
   window.setTimeout(refreshEnhancements, 0);
 })();
+
+(function () {
+  const view = document.querySelector("#practiceView");
+  const handle = document.querySelector("#splitHandle");
+  if (!view || !handle) return;
+
+  function setSplit(clientX) {
+    const rect = view.getBoundingClientRect();
+    const raw = ((clientX - rect.left) / rect.width) * 100;
+    const left = Math.min(58, Math.max(28, raw));
+    view.style.setProperty("--left-pane", `${left}%`);
+    localStorage.setItem("paneSplit", String(left));
+  }
+
+  const saved = Number(localStorage.getItem("paneSplit"));
+  if (saved) {
+    view.style.setProperty("--left-pane", `${saved}%`);
+  }
+
+  handle.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    handle.setPointerCapture(event.pointerId);
+    document.body.classList.add("is-resizing");
+  });
+
+  handle.addEventListener("pointermove", (event) => {
+    if (document.body.classList.contains("is-resizing")) {
+      setSplit(event.clientX);
+    }
+  });
+
+  handle.addEventListener("pointerup", (event) => {
+    handle.releasePointerCapture(event.pointerId);
+    document.body.classList.remove("is-resizing");
+  });
+
+  handle.addEventListener("keydown", (event) => {
+    const current = Number.parseFloat(getComputedStyle(view).getPropertyValue("--left-pane")) || 38;
+    if (event.key === "ArrowLeft") {
+      view.style.setProperty("--left-pane", `${Math.max(28, current - 2)}%`);
+    }
+    if (event.key === "ArrowRight") {
+      view.style.setProperty("--left-pane", `${Math.min(58, current + 2)}%`);
+    }
+  });
+})();
